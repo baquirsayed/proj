@@ -1,0 +1,3 @@
+Flask==2.2.2
+Flask_Mail==0.9.1
+flask_sqlalchemy==3.0.3
