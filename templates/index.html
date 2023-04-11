@@ -850,6 +850,30 @@
                       </div>
                       <button type="submit" class="btn btn-success  btn-mx-3">Submit</button>
                   </form>
+
+                  <form action = "/process-speech" method = "POST" enctype="multipart/form-data">
+                    <div>
+                    <input type="file" name = "audio-recording" accept="audio/*" capture />
+
+                    <button type="submit" class="btn btn-danger  btn-mx-3">Speak</button>
+
+                    <script>
+                      import Recorder from 'recorder-js'
+                      const recorder = document.getElementById('audio-recording');
+                    
+                      recorder.addEventListener('change', function(e) {
+                        const file = e.target.files[0];
+                        const url = URL.createObjectURL(file);
+                        // Do something with the audio file.
+                        <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+                        <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+
+                      });
+                    </script>
+                    </div>
+
+                    </form>
                   <div class="container my-3">
                     <h1>Option to set an alarm</h1>
             

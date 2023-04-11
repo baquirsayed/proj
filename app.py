@@ -1,9 +1,10 @@
 import speech_recognition as sr
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta, date
 from flask_mail import Mail, Message
 import pyttsx3
+from word2number import w2n
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -60,6 +61,25 @@ class Archives(db.Model):
 
 with app.app_context():
     db.create_all
+
+@app.route("/process-speech", methods = ['GET', 'POST'])
+def takeCommand():
+
+    url = request.args.get("url")
+    r = sr.Recognizer()
+    try:
+        query = r.recognize_google(url, language = 'en-in')
+    except Exception as e:
+        print(e)
+        return redirect("/")
+    query = query.lower()
+    if 'delete entry' in query:
+        query = query.replace("delete entry", "")
+        paymentNumber = w2n.word_to_num(query)
+        return redirect(url_for('delete', paymentNumber = paymentNumber))
+
+
+
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -138,17 +158,6 @@ def requests(paymentNumber):
     return render_template('requests.html', paymentquery = paymentquery)
 
 
-def takeCommand():
-    r = sr.Recognizer
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-    try:
-        query = r.recognize_google(audio, language = 'en-in')
-    except Exception as e:
-        print(e)
-        return "None"
-
-    
 
 
 with app.app_context():
@@ -156,10 +165,3 @@ with app.app_context():
     
 if __name__ == "__main__":
     app.run(debug=True, port = 10000)
-    while True:
-        query = takeCommand().lower
-        if 'delete entry' in query:
-            query = query.replace("delete entry", "")
-            paymentNumber = query.translate(str.maketrans('', '', ' \n\t\r'))
-            redirect = delete(paymentNumber)
-
