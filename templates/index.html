@@ -798,8 +798,8 @@
                                   class="btn btn-success  mx-1">Update</button>
                                   <a href="/delete/{{payment.paymentNumber}}" type="button"
                                     class="btn btn-danger  mx-1">Delete</button>
-                                  <a href="/requests/{{payment.paymentNumber}}" type="button"
-                                  class="btn btn-primary  mx-1">Send Request</button>
+                                    <a href="/requests/{{payment.paymentNumber}}" type="button"
+                                      class="btn btn-primary  mx-1">Send Request</button>
                               </td>
                             </tr>
                             {% endfor %}
@@ -834,66 +834,90 @@
                       <input type="email" class="form-control" name="paymentEmail" aria-label="Default"
                         aria-describedby="inputGroup-sizing-default">
                     </div>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroup-sizing-default">Payment method</span>
-                        </div>
-                        <input type="text" class="form-control" name="paymentMethod" aria-label="Default"
-                          aria-describedby="inputGroup-sizing-default">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Payment method</span>
                       </div>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-                        </div>
-                        <input type="text" class="form-control" name="paymentDescription" aria-label="Default"
-                          aria-describedby="inputGroup-sizing-default">
+                      <input type="text" class="form-control" name="paymentMethod" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
                       </div>
-                      <button type="submit" class="btn btn-success  btn-mx-3">Submit</button>
+                      <input type="text" class="form-control" name="paymentDescription" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <button type="submit" class="btn btn-success  btn-mx-3">Submit</button>
                   </form>
 
-                  <form action = "/process-speech" method = "POST" enctype="multipart/form-data">
-                    <div>
-                    <input type="file" name = "audio-recording" accept="audio/*" capture />
+                  <form action="/upload-audio" method="POST">
 
-                    <button type="submit" class="btn btn-danger  btn-mx-3">Speak</button>
-
+                    <button type="button" class="btn btn-info btn-mx-3" id="record-button" name="record-button ">Record</button>
+                    <button type="button" class="btn btn-info btn-mx-3" id="stop-button" name="stop-button">Stop</button>
                     <script>
-                      import Recorder from 'recorder-js'
-                      const recorder = document.getElementById('audio-recording');
-                    
-                      recorder.addEventListener('change', function(e) {
-                        const file = e.target.files[0];
-                        const url = URL.createObjectURL(file);
-                        // Do something with the audio file.
-                        <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
-                        <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-
-                      });
+                      // JavaScript code for recording audio
+                      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                      navigator.mediaDevices.getUserMedia({ audio: true })
+                        .then(stream => {
+                          const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+                          const audioChunks = [];
+                          mediaRecorder.addEventListener('dataavailable', event => {
+                            audioChunks.push(event.data);
+                          });
+                          mediaRecorder.addEventListener('stop', () => {
+                            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                            const formData = new FormData();
+                            formData.append('audio', audioBlob, 'recording.wav');
+                            fetch('/upload-audio', {
+                              method: 'POST',
+                              body: formData
+                            })
+                              .then(response => {
+                                console.log(response);
+                              })
+                              .catch(error => {
+                                console.error(error);
+                              });
+                          });
+                          const recordButton = document.getElementById('record-button');
+                          recordButton.addEventListener('click', () => {
+                            mediaRecorder.start();
+                          });
+                          const stopButton = document.getElementById('stop-button');
+                          stopButton.addEventListener('click', () => {
+                            mediaRecorder.stop();
+                          });
+                        })
+                        .catch(error => {
+                          console.error(error);
+                        });
                     </script>
-                    </div>
 
-                    </form>
+
+
+                  </form>
                   <div class="container my-3">
                     <h1>Option to set an alarm</h1>
-            
+
                     <form>
-                        <div class="form-group">
-                            <label for="alarm">Set Alarm</label>
-                            <input type="text" class="form-control" id="alarm" name="alarm"
-                                placeholder="Enter the time in yyyy-mm-dd hh:mm:ss">
-            
-                            
-                        </div>
-            
-            
-                        <button id="alarmSubmit" type="submit" class="btn btn-primary">Set Alarm</button>
+                      <div class="form-group">
+                        <label for="alarm">Set Alarm</label>
+                        <input type="text" class="form-control" id="alarm" name="alarm"
+                          placeholder="Enter the time in yyyy-mm-dd hh:mm:ss">
+
+
+                      </div>
+
+
+                      <button id="alarmSubmit" type="submit" class="btn btn-primary">Set Alarm</button>
                     </form>
-            
+
                     <div class="my-2">
-                        <ul id="defs"></ul>
+                      <ul id="defs"></ul>
                     </div>
-                </div>
+                        
+                  </div>
                 </div>
 
               </div>

@@ -1,10 +1,14 @@
 import speech_recognition as sr
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta, date
 from flask_mail import Mail, Message
 import pyttsx3
 from word2number import w2n
+from pydub import AudioSegment
+import os
+#import soundfile as sf
+##from scipy.io import wavfile
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -62,21 +66,53 @@ class Archives(db.Model):
 with app.app_context():
     db.create_all
 
-@app.route("/process-speech", methods = ['GET', 'POST'])
-def takeCommand():
+@app.route('/upload-audio', methods=['POST'])
+def upload_audio():
+    # Retrieve the audio file from the HTTP request
+    audio_file = request.files['audio']
 
-    url = request.args.get("url")
+    # Save the audio file to disk
+    audio_file.save('recording.wav')
+
+    # Return a JSON response to the client
+    response = {'message': 'Audio file saved successfully'}
+
+    process_audio()
+    return jsonify(response)
+
+def process_audio():
     r = sr.Recognizer()
+
     try:
-        query = r.recognize_google(url, language = 'en-in')
+        audio_file = AudioSegment.from_file('recording.wav')
+        audio_file.export('recording.wav', format='wav')
+        with sr.AudioFile('recording.wav') as source:   
+            audio = r.record(source)
+            query = r.recognize_google(audio,language = 'en-in')
     except Exception as e:
         print(e)
         return redirect("/")
     query = query.lower()
-    if 'delete entry' in query:
-        query = query.replace("delete entry", "")
-        paymentNumber = w2n.word_to_num(query)
-        return redirect(url_for('delete', paymentNumber = paymentNumber))
+    try:
+        if 'delete entry' in query:
+            query = query.replace("delete entry ", "")
+            paymentNumber = w2n.word_to_num(query)
+            print("hi")
+            paymentquery = Payments.query.filter_by(paymentNumber=paymentNumber).first()
+            print("hi")
+            db.session.delete(paymentquery)
+            print("hi")
+            db.session.commit()
+            os.remove('recording.wav')
+            return redirect('/')
+    except Exception as a:
+        print(a)
+        print("no")
+        os.remove('recording.wav')
+        return redirect('/')
+            
+            
+
 
 
 
@@ -131,15 +167,6 @@ def update(paymentNumber):
 @app.route('/delete/<int:paymentNumber>', methods=['GET', 'POST'])
 def delete(paymentNumber):
     paymentquery =  Payments.query.filter_by(paymentNumber=paymentNumber).first()
-    archive = Archives.query.filter_by(paymentNumber=paymentNumber).first()
-    paymentTitle = archive.paymentTitle
-    paymentAmount = archive.paymentAmount
-    paymentMethod = archive.paymentMethod
-    paymentDescription = archive.paymentDescription
-    paymentEmail = archive.paymentEmail
-    paymentStatus = 'Deleted'
-    archive = Archives(paymentTitle = paymentTitle, paymentAmount = paymentAmount, paymentMethod = paymentMethod, paymentDescription = paymentDescription, paymentEmail = paymentEmail, paymentStatus = paymentStatus)
-    db.session.add(archive)
     db.session.delete(paymentquery)
     db.session.commit()
     return redirect("/")
