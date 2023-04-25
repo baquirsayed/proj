@@ -24,16 +24,16 @@ app.config["SQLALCHEMY_BINDS"] = {
     'Archives' : 'sqlite:///Archives.db'
 } 
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_SERVER']='smtp.gmail.com'  
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = 'rizviproject2022@gmail.com'
-app.config['MAIL_PASSWORD'] = 'dsplvghnthzxybio'
+app.config['MAIL_PASSWORD'] = 'chjaynvccukcoqut'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
 db.init_app(app)
 
-
+    
 
 class Payments(db.Model):
     __bind_key__ = 'Payments'
@@ -83,6 +83,8 @@ def upload_audio():
 def process_audio():
     r = sr.Recognizer()
 
+    
+
     try:
         audio_file = AudioSegment.from_file('recording.wav')
         audio_file.export('recording.wav', format='wav')
@@ -91,24 +93,28 @@ def process_audio():
             query = r.recognize_google(audio,language = 'en-in')
     except Exception as e:
         print(e)
+        query = ''
         return redirect("/")
     query = query.lower()
     try:
         if 'delete entry' in query:
+            print(query)
             query = query.replace("delete entry ", "")
-            paymentNumber = w2n.word_to_num(query)
-            print("hi")
+            paymentNumber = query
+            print("assigned")
             paymentquery = Payments.query.filter_by(paymentNumber=paymentNumber).first()
-            print("hi")
+            print("filtered")
             db.session.delete(paymentquery)
-            print("hi")
+            print("deleted")
             db.session.commit()
             os.remove('recording.wav')
+            query = ''
             return redirect('/')
     except Exception as a:
         print(a)
-        print("no")
+        print("failed")
         os.remove('recording.wav')
+        query = ''
         return redirect('/')
             
             
@@ -173,17 +179,56 @@ def delete(paymentNumber):
 
 @app.route('/requests/<int:paymentNumber>', methods=['GET', 'POST'])
 def requests(paymentNumber):
-    scheduleTime = request.form.get('scheduleTime')
-    print(scheduleTime)
+    if request.method =='POST':
+        
+        paymentTime = request.form['paymentTime']
+        emailBody = request.form['emailBody']
+        print(emailBody)
+        print(paymentTime)
+
+        if paymentTime == "1 minute":
+            paymentSeconds = 60
+        elif paymentTime == "15 minutes":
+            paymentSeconds = 900
+        elif paymentTime == "30 minutes":
+            paymentSeconds = 1800
+        elif paymentTime == "1 hour":
+            paymentSeconds = 3600
+        elif paymentTime == "8 hours":
+            paymentSeconds = 28800
+        elif paymentTime == "1 day":
+            paymentSeconds = 86400
+        elif paymentTime == "1 week":
+            paymentSeconds = 604800
+        else:
+            paymentSeconds = 0
+        print(paymentSeconds)
+
+        paymentEmail = request.form['paymentEmail']
+        msg = Message('Reminder', sender = 'rizviproject2022@gmail.com',recipients=[paymentEmail])
+        msg.body = 'This is a reminder for your Payment'
+        if emailBody is not "":
+            msg.body = emailBody
+        mail.send(msg)
+        return redirect("/")
+    paymentquery =  Payments.query.filter_by(paymentNumber=paymentNumber).first()
+    return render_template('requests.html', paymentquery = paymentquery)
+
+@app.route('/send_email', methods=['POST'])
+def send_email():
+    text = request.json['text']
+
     if request.method =='POST':
         paymentEmail = request.form['paymentEmail']
         msg = Message('Reminder', sender = 'rizviproject2022@gmail.com',recipients=[paymentEmail])
         msg.body = 'This is a reminder for your Payment'
         mail.send(msg)
         return redirect("/")
-    paymentquery =  Payments.query.filter_by(paymentNumber=paymentNumber).first()
     return render_template('requests.html', paymentquery = paymentquery)
 
+   
+    
+    return 'Email sent'
 
 
 
