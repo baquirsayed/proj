@@ -12,17 +12,21 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ url_for('static', filename = 'plugins/fontawesome-free/css/all.min.css') }}" />
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}" />
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename = 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}" />
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}" />
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename = 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}" />
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}" />
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename = 'plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}" />
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{ url_for('static', filename = 'plugins/jqvmap/jqvmap.min.css') }}" />
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ url_for('static', filename = 'dist/css/adminlte.min.css') }}" />
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}" />
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename = 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}" />
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{ url_for('static', filename = 'plugins/daterangepicker/daterangepicker.css') }}" />
   <!-- summernote -->
@@ -33,7 +37,8 @@
   <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="{{ url_for('static', filename = 'dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60" />
+      <img class="animation__shake" src="{{ url_for('static', filename = 'dist/img/AdminLTELogo.png')}}"
+        alt="AdminLTELogo" height="60" width="60" />
     </div>
 
     <!-- Navbar -->
@@ -86,7 +91,8 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle" />
+                <img src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}" alt="User Avatar"
+                  class="img-size-50 mr-3 img-circle" />
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Brad Diesel
@@ -104,7 +110,8 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="{{ url_for('static', filename = 'dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3" />
+                <img src="{{ url_for('static', filename = 'dist/img/user8-128x128.jpg')}}" alt="User Avatar"
+                  class="img-size-50 img-circle mr-3" />
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     John Pierce
@@ -122,7 +129,8 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3" />
+                <img src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}" alt="User Avatar"
+                  class="img-size-50 img-circle mr-3" />
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Nora Silvester
@@ -185,8 +193,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="{{ url_for('static', filename = 'dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: 0.8" />
+        <img src="{{ url_for('static', filename = 'dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
+          class="brand-image img-circle elevation-3" style="opacity: 0.8" />
         <span class="brand-text font-weight-light">Payment Reminder</span>
       </a>
 
@@ -195,7 +203,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="{{ url_for('static', filename = 'dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image" />
+            <img src="{{ url_for('static', filename = 'dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
+              alt="User Image" />
           </div>
           <div class="info">
             <a href="#" class="d-block">XYZ</a>
@@ -214,11 +223,9 @@
           </div>
         </div>
 
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -234,18 +241,6 @@
                     <p>Dashboard 1</p>
                   </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Dashboard v3</p>
-                    </a>
-                  </li> -->
               </ul>
             </li>
             <li class="nav-item">
@@ -657,86 +652,12 @@
           </div>
           <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
 
-      <!-- Main content -->
+      </div>
+
       <section class="content">
         <div class="container-fluid">
-          <!-- Small boxes (Stat box) -->
-          <!-- <div class="row">
-              <div class="col-lg-3 col-6"> -->
-          <!-- small box -->
-          <!-- <div class="small-box bg-info">
-                  <div class="inner">
-                    <h3>Account</h3> -->
 
-          <!-- <p>Account</p> -->
-          <!-- </div>
-                  <div class="icon">
-                    <i class="ion ion-bag"></i>
-                  </div>
-                  <a href="#" class="small-box-footer"
-                    >More info <i class="fas fa-arrow-circle-right"></i
-                  ></a>
-                </div>
-              </div> -->
-          <!-- ./col -->
-          <!-- <div class="col-lg-3 col-6"> -->
-          <!-- small box -->
-          <!-- <div class="small-box bg-success">
-                  <div class="inner">
-                    <h3>Payment<sup style="font-size: 20px"></sup></h3> -->
-
-          <!-- <p>Bounce Rate</p> -->
-          <!-- </div>
-                  <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                  </div>
-                  <a href="#" class="small-box-footer"
-                    >More info <i class="fas fa-arrow-circle-right"></i
-                  ></a>
-                </div>
-              </div> -->
-          <!-- ./col -->
-          <!-- <div class="col-lg-3 col-6"> -->
-          <!-- small box -->
-          <!-- <div class="small-box bg-warning">
-                  <div class="inner">
-                    <h3>User</h3> -->
-
-          <!-- <p>User Registrations</p> -->
-          <!-- </div>
-                  <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                  </div>
-                  <a href="#" class="small-box-footer"
-                    >More info <i class="fas fa-arrow-circle-right"></i
-                  ></a>
-                </div>
-              </div> -->
-          <!-- ./col -->
-          <!-- <div class="col-lg-3 col-6"> -->
-          <!-- small box -->
-          <!-- <div class="small-box bg-danger">
-                  <div class="inner">
-                    <h3>Transaction</h3> -->
-
-          <!-- <p>Unique Visitors</p> -->
-          <!-- </div>
-                  <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                  </div>
-                  <a href="#" class="small-box-footer"
-                    >More info <i class="fas fa-arrow-circle-right"></i
-                  ></a>
-                </div>
-              </div> -->
-          <!-- ./col -->
-          <!-- </div> -->
-          <!-- /.row -->
-          <!-- Main row -->
           <div class="row">
             <!-- Left col -->
             <section class="col-lg-10 connectedSortable">
@@ -744,45 +665,106 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">
-                  <div class="card-tools">
-                    <ul class="nav nav-pills ml-auto">
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                    <div class="card-tools">
+                      <ul class="nav nav-pills ml-auto">
+                        </li>
+                      </ul>
+                    </div>
 
-                <div class="col-md-12">
-                  <div class="card">
-                    <div class="card-body">
-                        <div class = "container my-3">
+
+
+                    <div class="col-md-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="container my-3">
                             <h2>Request Reminder</h2>
-                            <form action = "/requests/{{paymentquery.paymentNumber}}" method = "POST">
+                            <form action="/requests/{{paymentquery.paymentNumber}}" method="POST">
                               <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-                                </div>  
-                                <input type="text" class="form-control" name = "paymentEmail" value = "{{paymentquery.paymentEmail}}" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                              <button type="requests" class="btn btn-success mr-1  btn-mx-3">Submit</button>
-
-                              <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Schedule time
-                                </button>
-                                <div class="dropdown-menu" name = "scheduleTime" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#">1 minute</a>
-                                  <a class="dropdown-item" href="#">15 minutes</a>
-                                  <a class="dropdown-item" href="#">30 minutes</a>
-                                  <a class="dropdown-item" href="#">1 hour</a>
-                                  <a class="dropdown-item" href="#">8 hours</a>
-                                  <a class="dropdown-item" href="#">1 day</a>
-                                  <a class="dropdown-item" href="#">1 week</a>
                                 </div>
-                              </div>
+                                <input type="text" class="form-control" name="paymentEmail"
+                                  value="{{paymentquery.paymentEmail}}" aria-label="Default"
+                                  aria-describedby="inputGroup-sizing-default">
+                                <button type="submit" class="btn btn-success mr-1  btn-mx-3" onClick = "assignValue()">Submit</button>
+                            
+
+                                <div class="dropdown" >
+                                  <input type = "hidden" class = "form-control" name = "paymentTime" id="paymentTime">
+                                  
+                                
+                                  <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Schedule time
+                                  </button>
+                                  <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton"
+                                    data-toggle="dropdown">
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 minute</button>
+                                      
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">15 minutes</button>
+                                      
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">30 minutes</button>
+                                     
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 hour</button>
+                                      
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">8 hours</button>
+                                    
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 day</button>
+                                   
+                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 week</button>
+                                    <script>
+                                      function setDropdown(item) {
+                                        document.getElementById("dropdownMenuButton").innerHTML = item.innerHTML;
+                                        document.getElementById("paymentTime").value = item.innerHTML;
+                                      }
+                                    </script>
+                                      <script>
+                                        function assignValue(){
+                                        document.getElementById("emailBody").value = document.getElementById("speechtotext").value;
+                                        }
+                                        </script>
+                                       
+                                  </div>
+                                </div>
+
+                                <div class="areanow my-3">
+                                  <textarea rows="5" cols="50" placeholder="Message body here" name = "emailBody"
+                                    id="speechtotext"></textarea>
+                                </div>
+
+                                <button type="button" class="btn btn-info my-1" id="startBtn" name="startBtn"
+                                  onclick="startSpeech()">Start Recognition</button>
+                                <button type="button" class="btn btn-info my-1 mx-1" name="stopBtn"
+                                  onclick="stopSpeech()">Stop Recognition</button>
+                              
+                                <script>
+                                  var recognition = new webkitSpeechRecognition();
+                                  recognition.continous = true;
+                                  recognition.lang = "en-IN";
+                                  transcript = "";
+
+
+
+                                  function startSpeech() {
+
+                                    recognition.onresult = function (event) {
+                                      console.log(event);
+                                      document.getElementById("speechtotext").value = event.results[0][0].transcript;
+                                      document.getElementById("emailBody").value = document.getElementById("speechtotext").value;
+                                    }
+                                    recognition.start();
+                                  }
+                                </script>
                             </form>
+
+
+
+
                           </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
                 </div>
               </div>
           </div>
@@ -834,7 +816,8 @@
               <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
             </div>
             <!-- /.direct-chat-infos -->
-            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}" alt="message user image" />
+            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}"
+              alt="message user image" />
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text">
               Is this template really for free? That's unbelievable!
@@ -850,7 +833,8 @@
               <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
             </div>
             <!-- /.direct-chat-infos -->
-            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}" alt="message user image" />
+            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}"
+              alt="message user image" />
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text">
               You better believe it!
@@ -866,7 +850,8 @@
               <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
             </div>
             <!-- /.direct-chat-infos -->
-            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}" alt="message user image" />
+            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}"
+              alt="message user image" />
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text">
               Working with AdminLTE on a great new app! Wanna join?
@@ -882,7 +867,8 @@
               <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
             </div>
             <!-- /.direct-chat-infos -->
-            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}" alt="message user image" />
+            <img class="direct-chat-img" src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}"
+              alt="message user image" />
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text">I would love to.</div>
             <!-- /.direct-chat-text -->
@@ -896,7 +882,8 @@
           <ul class="contacts-list">
             <li>
               <a href="#">
-                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}" alt="User Avatar" />
+                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user1-128x128.jpg')}}"
+                  alt="User Avatar" />
 
                 <div class="contacts-list-info">
                   <span class="contacts-list-name">
@@ -905,13 +892,14 @@
                   </span>
                   <span class="contacts-list-msg">How have you been? I was...</span>
                 </div>
-                <!-- /.contacts-list-info -->
+
               </a>
             </li>
-            <!-- End Contact Item -->
+
             <li>
               <a href="#">
-                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user7-128x128.jpg')}}" alt="User Avatar" />
+                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user7-128x128.jpg')}}"
+                  alt="User Avatar" />
 
                 <div class="contacts-list-info">
                   <span class="contacts-list-name">
@@ -920,13 +908,14 @@
                   </span>
                   <span class="contacts-list-msg">I will be waiting for...</span>
                 </div>
-                <!-- /.contacts-list-info -->
+
               </a>
             </li>
-            <!-- End Contact Item -->
+
             <li>
               <a href="#">
-                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}" alt="User Avatar" />
+                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user3-128x128.jpg')}}"
+                  alt="User Avatar" />
 
                 <div class="contacts-list-info">
                   <span class="contacts-list-name">
@@ -935,13 +924,14 @@
                   </span>
                   <span class="contacts-list-msg">I'll call you back at...</span>
                 </div>
-                <!-- /.contacts-list-info -->
+
               </a>
             </li>
-            <!-- End Contact Item -->
+
             <li>
               <a href="#">
-                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user5-128x128.jpg')}}" alt="User Avatar" />
+                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user5-128x128.jpg')}}"
+                  alt="User Avatar" />
 
                 <div class="contacts-list-info">
                   <span class="contacts-list-name">
@@ -950,13 +940,13 @@
                   </span>
                   <span class="contacts-list-msg">Where is your new...</span>
                 </div>
-                <!-- /.contacts-list-info -->
+
               </a>
-            </li>
-            <!-- End Contact Item -->
+
             <li>
               <a href="#">
-                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user6-128x128.jpg')}}" alt="User Avatar" />
+                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user6-128x128.jpg')}}"
+                  alt="User Avatar" />
 
                 <div class="contacts-list-info">
                   <span class="contacts-list-name">
@@ -964,14 +954,14 @@
                     <small class="contacts-list-date float-right">1/27/2015</small>
                   </span>
                   <span class="contacts-list-msg">Can I take a look at...</span>
-                </div>
-                <!-- /.contacts-list-info -->
+
               </a>
             </li>
-            <!-- End Contact Item -->
+
             <li>
               <a href="#">
-                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user8-128x128.jpg')}}" alt="User Avatar" />
+                <img class="contacts-list-img" src="{{ url_for('static', filename = 'dist/img/user8-128x128.jpg')}}"
+                  alt="User Avatar" />
 
                 <div class="contacts-list-info">
                   <span class="contacts-list-name">
@@ -980,16 +970,16 @@
                   </span>
                   <span class="contacts-list-msg">Never mind I found...</span>
                 </div>
-                <!-- /.contacts-list-info -->
+
               </a>
             </li>
-            <!-- End Contact Item -->
+
           </ul>
-          <!-- /.contacts-list -->
+
         </div>
-        <!-- /.direct-chat-pane -->
+
       </div>
-      <!-- /.card-body -->
+
       <div class="card-footer">
         <form action="#" method="post">
           <div class="input-group">
@@ -1149,174 +1139,24 @@
           </li>
         </ul>
       </div>
-      <!-- /.card-body -->
+
       <div class="card-footer clearfix">
         <button type="button" class="btn btn-primary float-right">
           <i class="fas fa-plus"></i> Add item
         </button>
       </div>
     </div>
-    <!-- /.card -->
     </section>
-    <!-- /.Left col -->
-    <!-- right col (We are only adding the ID to make the widgets sortable)-->
     <section class="col-lg-5 connectedSortable">
-      <!-- Map card -->
-      <!-- <div class="card bg-gradient-primary">
-                  <div class="card-header border-0">
-                    <h3 class="card-title">
-                      <i class="fas fa-map-marker-alt mr-1"></i>
-                      Visitors
-                    </h3> -->
-      <!-- card tools -->
-      <!-- <div class="card-tools">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm daterange"
-                        title="Date range"
-                      > -->
-      <!-- <i class="far fa-calendar-alt"></i>
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-sm"
-                        data-card-widget="collapse"
-                        title="Collapse"
-                      > -->
-      <!-- <i class="fas fa-minus"></i>
-                      </button>
-                    </div> -->
-      <!-- /.card-tools -->
-      <!-- </div>
-                  <div class="card-body">
-                    <div
-                      id="world-map"
-                      style="height: 250px; width: 100%"
-                    ></div>
-                  </div> -->
-      <!-- /.card-body-->
-      <!-- <div class="card-footer bg-transparent">
-                    <div class="row">
-                      <div class="col-4 text-center">
-                        <div id="sparkline-1"></div>
-                        <div class="text-white">Visitors</div>
-                      </div> -->
-      <!-- ./col -->
-      <!-- <div class="col-4 text-center">
-                        <div id="sparkline-2"></div>
-                        <div class="text-white">Online</div>
-                      </div> -->
-      <!-- ./col -->
-      <!-- <div class="col-4 text-center">
-                        <div id="sparkline-3"></div>
-                        <div class="text-white">Sales</div>
-                      </div> -->
-      <!-- ./col -->
-      <!-- </div> -->
-      <!-- /.row -->
-      <!-- </div> -->
-      <!-- </div> -->
-      <!-- /.card -->
-
-      <!-- solid sales graph -->
-      <!-- <div class="card bg-gradient-info">
-                  <div class="card-header border-0">
-                    <h3 class="card-title">
-                      <i class="fas fa-th mr-1"></i>
-                      Sales Graph
-                    </h3> -->
-
-      <!-- <div class="card-tools">
-                      <button
-                        type="button"
-                        class="btn bg-info btn-sm"
-                        data-card-widget="collapse"
-                      > -->
-      <!-- <i class="fas fa-minus"></i>
-                      </button>
-                      <button
-                        type="button"
-                        class="btn bg-info btn-sm"
-                        data-card-widget="remove"
-                      > -->
-      <!-- <i class="fas fa-times"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <canvas
-                      class="chart"
-                      id="line-chart"
-                      style="
-                        min-height: 250px;
-                        height: 250px;
-                        max-height: 250px;
-                        max-width: 100%;
-                      "
-                    ></canvas>
-                  </div> -->
-      <!-- /.card-body -->
-      <!-- <div class="card-footer bg-transparent">
-                    <div class="row">
-                      <div class="col-4 text-center">
-                        <input
-                          type="text"
-                          class="knob"
-                          data-readonly="true"
-                          value="20"
-                          data-width="60"
-                          data-height="60"
-                          data-fgColor="#39CCCC"
-                        /> -->
-
-      <!-- <div class="text-white">Mail-Orders</div>
-                      </div> -->
-      <!-- ./col -->
-      <!-- <div class="col-4 text-center">
-                        <input
-                          type="text"
-                          class="knob"
-                          data-readonly="true"
-                          value="50"
-                          data-width="60"
-                          data-height="60"
-                          data-fgColor="#39CCCC"
-                        /> -->
-
-      <!-- <div class="text-white">Online</div>
-                      </div> -->
-      <!-- ./col -->
-      <!-- <div class="col-4 text-center">
-                        <input
-                          type="text"
-                          class="knob"
-                          data-readonly="true"
-                          value="30"
-                          data-width="60"
-                          data-height="60"
-                          data-fgColor="#39CCCC"
-                        /> -->
-
-      <!-- <div class="text-white">In-Store</div>
-                      </div> -->
-      <!-- ./col -->
-      <!-- </div> -->
-      <!-- /.row -->
-      <!-- </div> -->
-      <!-- /.card-footer -->
-      <!-- </div> -->
-      <!-- /.card -->
-
-      <!-- Calendar -->
       <div class="card bg-gradient-success">
         <div class="card-header border-0">
           <h3 class="card-title">
             <i class="far fa-calendar-alt"></i>
             Calendar
           </h3>
-          <!-- tools card -->
+
           <div class="card-tools">
-            <!-- button with a dropdown -->
+
             <div class="btn-group">
               <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"
                 data-offset="-52">
@@ -1374,6 +1214,8 @@
   </div>
   <!-- ./wrapper -->
 
+  <script src="{{url_for('static', filename = 'dist/js/audiorecorder.js')}}"></script>
+  <script src="./speechRecognition.js"></script>
   <!-- jQuery -->
   <script src="{{ url_for('static', filename = 'plugins/jquery/jquery.min.js') }}"></script>
   <!-- jQuery UI 1.11.4 -->
@@ -1397,11 +1239,13 @@
   <script src="{{ url_for('static', filename = 'plugins/moment/moment.min.js') }}"></script>
   <script src="{{ url_for('static', filename = 'plugins/daterangepicker/daterangepicker.js') }}"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="{{ url_for('static', filename = 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+  <script
+    src="{{ url_for('static', filename = 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
   <!-- Summernote -->
   <script src="{{ url_for('static', filename = 'plugins/summernote/summernote-bs4.min.js') }}"></script>
   <!-- overlayScrollbars -->
-  <script src="{{ url_for('static', filename = 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+  <script
+    src="{{ url_for('static', filename = 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ url_for('static', filename = 'dist/js/adminlte.js') }}"></script>
   <!-- AdminLTE for demo purposes -->
