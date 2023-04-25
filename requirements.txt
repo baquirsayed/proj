@@ -2,6 +2,4 @@ Flask==2.2.3
 Flask_Mail==0.9.1
 flask_sqlalchemy==3.0.3
 pydub==0.25.1
-pyttsx3==2.90
 SpeechRecognition==3.10.0
-word2number==1.1
