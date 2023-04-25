@@ -686,50 +686,60 @@
                                 <input type="text" class="form-control" name="paymentEmail"
                                   value="{{paymentquery.paymentEmail}}" aria-label="Default"
                                   aria-describedby="inputGroup-sizing-default">
-                                <button type="submit" class="btn btn-success mr-1  btn-mx-3" onClick = "assignValue()">Submit</button>
-                            
+                                <button type="submit" class="btn btn-success mr-1  btn-mx-3"
+                                  onClick="redirectHome()">Submit</button>
 
-                                <div class="dropdown" >
-                                  <input type = "hidden" class = "form-control" name = "paymentTime" id="paymentTime">
-                                  
-                                
+
+                                <div class="dropdown">
+                                  <input type="hidden" class="form-control" name="paymentTime" id="paymentTime">
+
+
                                   <button class="btn btn-secondary dropdown-toggle" type="button"
                                     id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     Schedule time
                                   </button>
-                                  <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton"
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                     data-toggle="dropdown">
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 minute</button>
-                                      
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">15 minutes</button>
-                                      
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">30 minutes</button>
-                                     
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 hour</button>
-                                      
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">8 hours</button>
-                                    
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 day</button>
-                                   
-                                    <button class="dropdown-item" type="button" class = "form-control" onclick="setDropdown(this)">1 week</button>
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">1 minute</button>
+
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">15 minutes</button>
+
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">30 minutes</button>
+
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">1 hour</button>
+
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">8 hours</button>
+
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">1 day</button>
+
+                                    <button class="dropdown-item" type="button" class="form-control"
+                                      onclick="setDropdown(this)">1 week</button>
                                     <script>
                                       function setDropdown(item) {
                                         document.getElementById("dropdownMenuButton").innerHTML = item.innerHTML;
                                         document.getElementById("paymentTime").value = item.innerHTML;
                                       }
                                     </script>
-                                      <script>
-                                        function assignValue(){
-                                        document.getElementById("emailBody").value = document.getElementById("speechtotext").value;
-                                        }
-                                        </script>
-                                       
+                                    <script>
+                                      function redirectHome() {
+                                        setTimeout(function () {
+                                          window.location.href = "/";
+                                        }, 5000);
+                                      }
+                                    </script>
+
                                   </div>
                                 </div>
 
                                 <div class="areanow my-3">
-                                  <textarea rows="5" cols="50" placeholder="Message body here" name = "emailBody"
+                                  <textarea rows="5" cols="50" placeholder="Message body here" name="emailBody"
                                     id="speechtotext"></textarea>
                                 </div>
 
@@ -737,7 +747,7 @@
                                   onclick="startSpeech()">Start Recognition</button>
                                 <button type="button" class="btn btn-info my-1 mx-1" name="stopBtn"
                                   onclick="stopSpeech()">Stop Recognition</button>
-                              
+
                                 <script>
                                   var recognition = new webkitSpeechRecognition();
                                   recognition.continous = true;

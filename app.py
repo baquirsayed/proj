@@ -1,23 +1,24 @@
+import atexit
+import sched
+import time
 import speech_recognition as sr
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from threading import Thread
+from flask import Flask, render_template, request, redirect, url_for, jsonify, current_app
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta, date
 from flask_mail import Mail, Message
-import pyttsx3
-from word2number import w2n
 from pydub import AudioSegment
 import os
-#import soundfile as sf
-##from scipy.io import wavfile
 
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+
+
 
 
 db = SQLAlchemy()
 app = Flask(__name__)
 app2 = Flask(__name__)
+
+scheduler = sched.scheduler(time.time, time.sleep)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Payment.db"
 app.config["SQLALCHEMY_BINDS"] = {
     'Payments' : 'sqlite:///Payments.db',
@@ -181,6 +182,7 @@ def delete(paymentNumber):
 def requests(paymentNumber):
     if request.method =='POST':
         
+        paymentEmail = request.form['paymentEmail']
         paymentTime = request.form['paymentTime']
         emailBody = request.form['emailBody']
         print(emailBody)
@@ -204,36 +206,40 @@ def requests(paymentNumber):
             paymentSeconds = 0
         print(paymentSeconds)
 
-        paymentEmail = request.form['paymentEmail']
-        msg = Message('Reminder', sender = 'rizviproject2022@gmail.com',recipients=[paymentEmail])
-        msg.body = 'This is a reminder for your Payment'
-        if emailBody is not "":
-            msg.body = emailBody
-        mail.send(msg)
-        return redirect("/")
+        if(paymentSeconds == 0):
+            msg = Message('Reminder', sender = 'rizviproject2022@gmail.com', recipients=[paymentEmail])
+            msg.body = 'This is a reminder for your Payment'
+            if emailBody != "":
+                msg.body = emailBody 
+            mail.send(msg)
+            return redirect("/")
+        else:
+            scheduler.enter(paymentSeconds, 1, Thread(target=send_email, args=(paymentEmail, emailBody)).start, ())
+            scheduler.run()
+            return redirect("/")
+        
     paymentquery =  Payments.query.filter_by(paymentNumber=paymentNumber).first()
     return render_template('requests.html', paymentquery = paymentquery)
 
-@app.route('/send_email', methods=['POST'])
-def send_email():
-    text = request.json['text']
-
-    if request.method =='POST':
-        paymentEmail = request.form['paymentEmail']
-        msg = Message('Reminder', sender = 'rizviproject2022@gmail.com',recipients=[paymentEmail])
+def send_email(email, body):
+    with app.app_context():
+        msg = Message('Reminder', sender = 'rizviproject2022@gmail.com', recipients=[email])
         msg.body = 'This is a reminder for your Payment'
+        if body != "":
+            msg.body = body
         mail.send(msg)
-        return redirect("/")
-    return render_template('requests.html', paymentquery = paymentquery)
-
-   
+        return True
     
-    return 'Email sent'
+
 
 
 
 with app.app_context():
     db.create_all()
+
+def start_scheduler():
+    scheduler.run()
     
 if __name__ == "__main__":
+    atexit.register(lambda: scheduler.shutdown(wait=False))
     app.run(debug=True, port = 10000)
