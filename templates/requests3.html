@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Record Audio</title>
+</head>
+
+<body>
+    <h1>Record Audio</h1>
+    <button id="recordButton" onclick="voice()">Record</button>
+    <button id="stopButton" onclick="sendTranscript()">Stop</button>
+    <textarea rows="5" cols="50" placeholder="Message body here" id="speechtotext"></textarea>
+
+    <script>
+       
+        transcript = "";
+
+        function voice() {
+            window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            recognition.lang = "en-IN";
+            recognition.onresult = function (event) {
+                console.log(event);
+                document.getElementById("speechtotext").value = event.results[0][0].transcript;
+            }
+            recognition.start();
+        }
+
+        function sendTranscript() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/send_email");
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify({ "transcript": transcript }));
+
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
