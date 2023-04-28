@@ -15,10 +15,10 @@ In this modern world online billing, is commonly used for payment purposes . The
 
 ### Deployment Steps
 Please follow the below steps to run this project.
-1. Step 1 here
-2. Step 2 here
-3. Step 3 here
-3. and so on...
+1. Download the project or clone it using git clone
+2. Download all requirements file by typing "pip install -r requirements.txt". This will download all the required libraries
+3. Open a terminal and start app.py
+4. The project will be hosted on localhost:10000
 
 ### Subject Details
 - Class : TE (COMP) Div A - 2022-2023
@@ -26,13 +26,15 @@ Please follow the below steps to run this project.
 - Project Type : Mini Project
 
 ### Platform, Libraries and Frameworks used
-1. [NodeJS](https://nodejs.org)
-2. [ExpressJS](https://expressjs.org)
-3. [TensorFlow](https://tensorflowjs.com)
+1. From python, sched (Event Scheduler), atexit (Exit handler), time, os
+2. SpeechRecognition (https://pypi.org/project/SpeechRecognition/)
+3. Flask (https://pypi.org/project/Flask/)
+4. Flask-SQLAlchemy (https://pypi.org/project/Flask-SQLAlchemy/)
+5. Flask-Mail (https://pypi.org/project/Flask-Mail/)
+6. PyDub (https://pypi.org/project/pydub/)
 
 ### Dataset Used
-1. [Kaggle Dataset 1](https://kaggle.com/dataset1)
-2. [Kaggle Dataset 2](https://kaggle.com/dataset2)
+
 
 ### References
 - [https://kaggle.com/dataset1](https://kaggle.com/dataset1)
