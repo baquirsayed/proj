@@ -37,5 +37,8 @@ Please follow the below steps to run this project.
 
 
 ### References
-- [https://kaggle.com/dataset1](https://kaggle.com/dataset1)
-- [https://kaggle.com/dataset1](https://kaggle.com/dataset1)
+
+https://5.imimg.com/data5/FE/HI/MY2632820/paymentreminder-system.pdf 
+https://www.codementor.io/projects/mobile/invoicing and payment reminder
+https://nevonprojects.com/ 
+https://www.worldwidejournals.com/
