@@ -1,20 +1,39 @@
-This is a Payment Reminder web application that uses Flask for it's backend. It uses SQLAlchemy
-for its database and stores the user's payments in it. It also has an on-screen payment pop-up
-and an email that can be scheduled to be sent to the user, or to a client at a specific interval
-of time.
+# Payment Reminder
 
-INSTRUCTIONS :
+> **Abstract** : Payment Reminder is a  notification typically send via email, letter or SMS, that a company delivers to the users if a payment is overdue.
+As the name suggests it is designed to remind the customers of their past due invoice, which has exceeded the date agreed int he invoice terms.
+In this modern world online billing, is commonly used for payment purposes . There has to be proposed and centralized system for keeping tracks of the bills & to the notify to the users on a timely basis to pay their due bills. The Payment Reminder web application will help the user to set-up reminder for their all type of due bills & reminders.
 
--Open a console and install all the latest dependencies for the project to work using the
-provided requirement files using "pip install -r requirements"
--Use the application as needed
+### Project Members
+1. SHAIKH AFTAB REJASALIM  [ Team Leader ] 
+2. SHAIKH MUDASSER ALI GULAM MUSTAFA ABBAS 
+3. SAYED MOHAMMAD BAQUIR ANWAR ABBAS 
+4. JAFAR BADREEN SALIM 
 
-FEATURES :
+### Project Guides
+1. PROF. MOHAMMED JUNED   [ Primary Guide ] 
 
--Add Database entries to the application
--Update Database entries
--Delete Database entries, can use voice recognition to do so
--Send an email to the user or to a client. Message body can be written using voice recognition
-and the email can be scheduled to be sent at a specific interval using the dropdown menu
+### Deployment Steps
+Please follow the below steps to run this project.
+1. Step 1 here
+2. Step 2 here
+3. Step 3 here
+3. and so on...
 
+### Subject Details
+- Class : TE (COMP) Div A - 2022-2023
+- Subject : Mini Project Lab: 2B (mP2B)
+- Project Type : Mini Project
 
+### Platform, Libraries and Frameworks used
+1. [NodeJS](https://nodejs.org)
+2. [ExpressJS](https://expressjs.org)
+3. [TensorFlow](https://tensorflowjs.com)
+
+### Dataset Used
+1. [Kaggle Dataset 1](https://kaggle.com/dataset1)
+2. [Kaggle Dataset 2](https://kaggle.com/dataset2)
+
+### References
+- [https://kaggle.com/dataset1](https://kaggle.com/dataset1)
+- [https://kaggle.com/dataset1](https://kaggle.com/dataset1)
